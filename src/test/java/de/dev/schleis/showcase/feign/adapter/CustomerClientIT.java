@@ -17,13 +17,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @Slf4j
-public class CustomerClientIT {
+public class CustomerClientIT
+{
 
     @Autowired
     private CustomerClient underTest;
 
     @Test
-    public void findAll() {
+    public void findAll()
+    {
         final List<CustomerDTO> results = underTest.findAllCustomers();
 
         log.info("------------------------------------------");
@@ -34,7 +36,8 @@ public class CustomerClientIT {
     }
 
     @Test
-    public void createCustomer() {
+    public void createCustomer()
+    {
         final CustomerDTO result = underTest.createCustomer(CustomerDTO.builder()
                 .firstname("Han")
                 .lastname("Solo")
@@ -48,7 +51,8 @@ public class CustomerClientIT {
     }
 
     @Test
-    public void findById() {
+    public void findById()
+    {
         final CustomerDTO result = underTest.findCustomerById(1L);
 
         log.info("------------------------------------------");
@@ -59,16 +63,9 @@ public class CustomerClientIT {
     }
 
     @Test(expected = FeignException.class)
-    public void deleteCustomers() {
+    public void deleteCustomers()
+    {
         underTest.deleteAllCustomers();
-
-        final List<CustomerDTO> customers = underTest.findAllCustomers();
-
-       /* log.info("------------------------------------------");
-        customers.forEach(c -> log.info(c.toString()));
-        log.info("------------------------------------------");
-
-        assertThat(customers).isNotNull().isEmpty();*/
     }
 
 

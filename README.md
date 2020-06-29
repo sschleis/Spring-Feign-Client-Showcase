@@ -1,4 +1,4 @@
-# Spring-Feign-Client-Showcase 2.1.0
+# Spring-Feign-Client-Showcase 2.3.1
 
 Example Open Feign Client
 
